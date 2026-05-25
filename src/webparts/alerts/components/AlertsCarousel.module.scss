@@ -1,0 +1,231 @@
+.wrapper {
+  width: 100%;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+// ── Card shell ────────────────────────────────────────────────
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #edebe9;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  padding: 18px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+// ── Header: ALERTS label + View all ──────────────────────────
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionLabel {
+  font-size: 0.78em;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1b1b1b;
+}
+
+.viewAllLink {
+  background: none;
+  border: none;
+  color: #ca5010;
+  font-size: 0.82em;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.15s ease;
+
+  &:hover { opacity: 0.75; }
+}
+
+// ── Meta row: priority badge + date ──────────────────────────
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.priorityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7em;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.priorityCritical { color: #d13438; background: #fde7e9; }
+.priorityHigh     { color: #ca5010; background: #fce9d8; }
+.priorityMedium   { color: #797673; background: #f3f2f1; }
+.priorityLow      { color: #107c10; background: #dff6dd; }
+
+@keyframes pulseDotAnim {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulseDotAnim 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.metaDate {
+  font-size: 0.78em;
+  color: #8a8886;
+  font-weight: 500;
+}
+
+// ── Title ─────────────────────────────────────────────────────
+.title {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 700;
+  color: #1b1b1b;
+  line-height: 1.35;
+}
+
+// ── Body ──────────────────────────────────────────────────────
+.body {
+  margin: 0;
+  font-size: 0.85em;
+  color: #323130;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+// ── Footer: dots + actions ────────────────────────────────────
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c8c6c4;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.dotActive {
+  background: #ca5010;
+  width: 18px;
+  border-radius: 4px;
+}
+
+.footerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.readMoreBtn {
+  padding: 6px 14px;
+  background: #1b1b1b;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 600;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+
+  &:hover { background: #323130; }
+}
+
+.addBtnFooter {
+  padding: 6px 12px;
+  background: transparent;
+  color: #107c10;
+  border: 1px solid #107c10;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover { background: #107c10; color: #ffffff; }
+}
+
+// ── Empty state ───────────────────────────────────────────────
+.emptyState {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #edebe9;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.emptyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 12px;
+}
+
+.emptyBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  gap: 10px;
+  border-top: 1px solid #f3f2f1;
+
+  p {
+    margin: 0;
+    font-size: 0.88em;
+    color: #605e5c;
+    font-weight: 500;
+  }
+}
+
+.emptyIcon { font-size: 2em; }
+
+.addBtn {
+  padding: 7px 16px;
+  background: #107c10;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82em;
+  font-weight: 600;
+
+  &:hover { background: #0b5a08; }
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 480px) {
+  .card { padding: 14px 16px 12px; }
+  .title { font-size: 0.95em; }
+  .body { font-size: 0.82em; }
+}
