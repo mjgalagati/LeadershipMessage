@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { Icon } from "@fluentui/react";
 import { ILeadershipMessage } from "../models/ILeadershipMessage";
 import { IExecutive } from "../models/IExecutive";
@@ -32,7 +33,7 @@ const ViewAllModal: React.FC<ViewAllModalProps> = ({
     if (e.target === e.currentTarget) onDismiss();
   };
 
-  return (
+  return ReactDOM.createPortal(
     <div className={styles.backdrop} onClick={handleBackdropClick} role="dialog" aria-modal="true">
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
 
@@ -150,7 +151,8 @@ const ViewAllModal: React.FC<ViewAllModalProps> = ({
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

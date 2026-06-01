@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { useState, useEffect, useRef } from "react";
 import { Icon } from "@fluentui/react";
 import { IExecutive } from "../models/IExecutive";
@@ -109,7 +110,7 @@ const AddEditExecutiveModal: React.FC<AddEditExecutiveModalProps> = ({
 
   const hasPhoto = !!previewSrc;
 
-  return (
+  return ReactDOM.createPortal(
     <div className={styles.backdrop} onClick={handleBackdropClick} role="dialog" aria-modal="true">
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
 
@@ -224,7 +225,8 @@ const AddEditExecutiveModal: React.FC<AddEditExecutiveModalProps> = ({
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

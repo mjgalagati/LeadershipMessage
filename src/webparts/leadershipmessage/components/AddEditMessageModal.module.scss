@@ -8,6 +8,7 @@
   justify-content: center;
   z-index: 9000;
   padding: 16px;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 // ── Modal shell ───────────────────────────────────────────────
@@ -97,6 +98,7 @@
   background: #fff;
   outline: none;
   box-sizing: border-box;
+  font-family: inherit;
   transition: border-color 0.15s ease;
   &:focus { border-color: #0078d4; }
 }

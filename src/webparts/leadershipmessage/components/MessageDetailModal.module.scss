@@ -8,6 +8,7 @@
   justify-content: center;
   z-index: 9000;
   padding: 16px;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 // ── Modal shell ───────────────────────────────────────────────
@@ -100,13 +101,13 @@
 }
 
 .execName {
-  font-size: 1em;
+  font-size: 0.88em;
   font-weight: 700;
   color: #1b1b1b;
 }
 
 .execPosition {
-  font-size: 0.82em;
+  font-size: 0.78em;
   color: #8a8886;
   font-weight: 500;
 }

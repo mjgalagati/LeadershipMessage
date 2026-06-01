@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { Icon } from "@fluentui/react";
 import { ILeadershipMessage } from "../models/ILeadershipMessage";
 import styles from "./MessageDetailModal.module.scss";
@@ -35,7 +36,7 @@ const MessageDetailModal: React.FC<MessageDetailModalProps> = ({
     if (e.target === e.currentTarget) onDismiss();
   };
 
-  return (
+  return ReactDOM.createPortal(
     <div className={styles.backdrop} onClick={handleBackdropClick} role="dialog" aria-modal="true">
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
 
@@ -134,7 +135,8 @@ const MessageDetailModal: React.FC<MessageDetailModalProps> = ({
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

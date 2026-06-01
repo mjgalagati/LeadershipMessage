@@ -8,6 +8,7 @@
   justify-content: center;
   z-index: 9000;
   padding: 16px;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 // ── Modal shell ───────────────────────────────────────────────
@@ -196,6 +197,7 @@
 
 .rowMeta {
   font-size: 0.78em;
+  font-weight: 500;
   color: #8a8886;
   white-space: nowrap;
   overflow: hidden;
@@ -203,8 +205,8 @@
 }
 
 .rowPreview {
-  font-size: 0.78em;
-  color: #a19f9d;
+  font-size: 0.83em;
+  color: #605e5c;
   font-style: italic;
   white-space: nowrap;
   overflow: hidden;

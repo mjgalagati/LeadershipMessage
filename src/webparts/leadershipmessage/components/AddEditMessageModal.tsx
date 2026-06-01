@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { useState, useEffect, useRef } from "react";
 import { Icon } from "@fluentui/react";
 import { ILeadershipMessage } from "../models/ILeadershipMessage";
@@ -84,7 +85,7 @@ const AddEditMessageModal: React.FC<AddEditMessageModalProps> = ({
     }
   };
 
-  return (
+  return ReactDOM.createPortal(
     <div className={styles.backdrop} onClick={handleBackdropClick} role="dialog" aria-modal="true">
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
 
@@ -222,7 +223,8 @@ const AddEditMessageModal: React.FC<AddEditMessageModalProps> = ({
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
