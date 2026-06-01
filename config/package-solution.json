@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "alerts-client-side-solution",
-    "id": "bec4dc38-43b5-4d1f-94e9-b9b37996995c",
+    "name": "leadershipmessage-client-side-solution",
+    "id": "55921592-0ea9-41e9-8a0d-9c9e9bcd1e21",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
@@ -16,10 +16,10 @@
     },
     "metadata": {
       "shortDescription": {
-        "default": "Alerts description"
+        "default": "Leadership Message description"
       },
       "longDescription": {
-        "default": "Alerts description"
+        "default": "Leadership Message description"
       },
       "screenshotPaths": [],
       "videoUrl": "",
@@ -27,14 +27,14 @@
     },
     "features": [
       {
-        "title": "Alerts Feature",
-        "description": "The feature that activates elements of the alerts solution.",
+        "title": "Leadership Message Feature",
+        "description": "The feature that activates elements of the leadershiip message solution.",
         "id": "e1a37bf6-6e6e-49ea-b565-4cac215f097d",
         "version": "1.0.0.0"
       }
     ]
   },
   "paths": {
-    "zippedPackage": "solution/alerts.sppkg"
+    "zippedPackage": "solution/leadershipmessage.sppkg"
   }
 }

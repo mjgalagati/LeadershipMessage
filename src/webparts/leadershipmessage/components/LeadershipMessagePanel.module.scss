@@ -1,0 +1,208 @@
+.wrapper {
+  width: 100%;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+// ── Card ──────────────────────────────────────────────────────
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #edebe9;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+// ── Header ────────────────────────────────────────────────────
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionLabel {
+  font-size: 0.72em;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #1b1b1b;
+}
+
+.viewAllLink {
+  background: none;
+  border: none;
+  color: #0078d4;
+  font-size: 0.82em;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.15s ease;
+  &:hover { opacity: 0.75; }
+}
+
+// ── Message body: avatar + content ────────────────────────────
+.messageBody {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+// ── Avatar ────────────────────────────────────────────────────
+.avatarCol { flex-shrink: 0; }
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #edebe9;
+  display: block;
+}
+
+.avatarFallback {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #0078d4;
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #edebe9;
+}
+
+// ── Content ───────────────────────────────────────────────────
+.contentCol {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.execMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.execName {
+  font-size: 0.88em;
+  font-weight: 700;
+  color: #1b1b1b;
+}
+
+.execPosition {
+  font-size: 0.78em;
+  color: #8a8886;
+  font-weight: 500;
+}
+
+.messageTitle {
+  margin: 16px 0 0 0;
+  font-size: 0.98em;
+  font-weight: 700;
+  color: #1b1b1b;
+  line-height: 1.3;
+}
+
+.pullQuote {
+  margin: 4px 0 0 0;
+  font-size: 0.83em;
+  color: #605e5c;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+// ── Footer ────────────────────────────────────────────────────
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.readMoreBtn {
+  padding: 6px 14px;
+  background: #1b1b1b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 600;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+  &:hover { background: #323130; }
+}
+
+.addBtnFooter {
+  padding: 6px 12px;
+  background: transparent;
+  color: #107c10;
+  border: 1px solid #107c10;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  &:hover { background: #107c10; color: #fff; }
+}
+
+// ── Empty state ───────────────────────────────────────────────
+.emptyState {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #edebe9;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.emptyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 12px;
+}
+
+.emptyBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  gap: 10px;
+  border-top: 1px solid #f3f2f1;
+
+  p {
+    margin: 0;
+    font-size: 0.88em;
+    color: #605e5c;
+    font-weight: 500;
+  }
+}
+
+.emptyIcon { font-size: 2em; }
+
+.addBtn {
+  padding: 7px 16px;
+  background: #107c10;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82em;
+  font-weight: 600;
+  &:hover { background: #0b5a08; }
+}
+
+@media (max-width: 480px) {
+  .messageBody { flex-direction: column; align-items: center; text-align: center; }
+  .execMeta { align-items: center; }
+}

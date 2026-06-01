@@ -1,4 +1,4 @@
-declare interface IAlertsWebPartStrings {
+declare interface ILeadershipMessageWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
@@ -13,7 +13,7 @@ declare interface IAlertsWebPartStrings {
   UnknownEnvironment: string;
 }
 
-declare module 'AlertsWebPartStrings' {
-  const strings: IAlertsWebPartStrings;
+declare module 'LeadershipMessageWebPartStrings' {
+  const strings: ILeadershipMessageWebPartStrings;
   export = strings;
 }

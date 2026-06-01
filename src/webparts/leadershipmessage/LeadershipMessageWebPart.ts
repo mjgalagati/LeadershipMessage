@@ -5,47 +5,39 @@ import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
   PropertyPaneDropdown,
-  PropertyPaneSlider,
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
-import * as strings from 'AlertsWebPartStrings';
-import AlertsCarousel from './components/AlertsCarousel';
-import { IAlertsCarouselProps } from './components/IAlertsCarouselProps';
+import * as strings from 'LeadershipMessageWebPartStrings';
+import LeadershipMessagePanel from './components/LeadershipMessagePanel';
+import { ILeadershipMessagePanelProps } from './components/ILeadershipMessagePanelProps';
 import { spfi, SPFx } from "@pnp/sp";
 import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import "@pnp/sp/site-users/web";
 
-export interface IAlertsWebPartProps {
-  description: string;
+export interface ILeadershipMessageWebPartProps {
+  sectionTitle: string;
   sourceList: string;
-  carouselLimit: number;
+  executiveList: string;
 }
 
-export default class AlertsWebPart extends BaseClientSideWebPart<IAlertsWebPartProps> {
+export default class LeadershipMessageWebPart extends BaseClientSideWebPart<ILeadershipMessageWebPartProps> {
 
   private _sp!: ReturnType<typeof spfi>;
   private _siteLists: { key: string; text: string }[] = [];
   private _currentUserId: number = 0;
 
   public render(): void {
-    const element: React.ReactElement<IAlertsCarouselProps> = React.createElement(
-      AlertsCarousel,
+    const element: React.ReactElement<ILeadershipMessagePanelProps> = React.createElement(
+      LeadershipMessagePanel,
       {
-        description: this.properties.description,
+        sectionTitle: this.properties.sectionTitle || "EXECUTIVE MESSAGE",
         sourceList: this.properties.sourceList,
-        // Cap at 5 at the webpart level; component also enforces this
-        carouselLimit: Math.min(this.properties.carouselLimit || 3, 5),
-        isDarkTheme: !!this.context.pageContext.legacyPageContext?.isDarkTheme,
-        environmentMessage: '',
-        hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName,
+        executiveList: this.properties.executiveList,
         context: this.context,
-        currentUserLogin: this.context.pageContext.user.loginName,
         currentUserId: this._currentUserId,
-        isAdmin: false,
-      } as IAlertsCarouselProps
+      }
     );
 
     ReactDom.render(element, this.domElement);
@@ -105,21 +97,19 @@ export default class AlertsWebPart extends BaseClientSideWebPart<IAlertsWebPartP
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel,
+                PropertyPaneTextField('sectionTitle', {
+                  label: 'Section Title',
+                  placeholder: 'EXECUTIVE MESSAGE',
                 }),
                 PropertyPaneDropdown('sourceList', {
-                  label: 'Select Alerts List',
+                  label: 'Message Source List',
                   options: this._siteLists,
                   disabled: this._siteLists.length === 0,
                 }),
-                PropertyPaneSlider('carouselLimit', {
-                  label: 'Featured Alerts Limit',
-                  min: 1,
-                  max: 5,
-                  step: 1,
-                  showValue: true,
-                  value: Math.min(this.properties.carouselLimit || 3, 5),
+                PropertyPaneDropdown('executiveList', {
+                  label: 'Executive Directory List',
+                  options: this._siteLists,
+                  disabled: this._siteLists.length === 0,
                 }),
               ]
             }

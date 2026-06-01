@@ -5,15 +5,15 @@
     "alerts-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/alerts/AlertsWebPart.js",
-          "manifest": "./src/webparts/alerts/AlertsWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/leadershipmessage/LeadershipMessageWebPart.js",
+          "manifest": "./src/webparts/leadershipmessage/LeadershipMessageWebPart.manifest.json"
         }
       ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "AlertsWebPartStrings": "lib/webparts/alerts/loc/{locale}.js",
+    "LeadershipMessageWebPartStrings": "lib/webparts/leadershipmessage/loc/{locale}.js",
     "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
   }
 }

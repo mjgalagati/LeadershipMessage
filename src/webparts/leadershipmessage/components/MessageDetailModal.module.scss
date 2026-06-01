@@ -1,0 +1,248 @@
+// ── Backdrop ──────────────────────────────────────────────────
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  padding: 16px;
+}
+
+// ── Modal shell ───────────────────────────────────────────────
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.22);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+// ── Close button ──────────────────────────────────────────────
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #605e5c;
+  font-size: 1.1em;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: background 0.15s ease;
+  &:hover { background: #f3f2f1; color: #1b1b1b; }
+}
+
+// ── Scroll body ───────────────────────────────────────────────
+.scrollBody {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.content {
+  padding: 28px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// ── Executive header ──────────────────────────────────────────
+.execHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-right: 40px; // room for close button
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #edebe9;
+}
+
+.avatarFallback {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #0078d4;
+  color: #fff;
+  font-size: 1.8em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #edebe9;
+}
+
+.execInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.execName {
+  font-size: 1em;
+  font-weight: 700;
+  color: #1b1b1b;
+}
+
+.execPosition {
+  font-size: 0.82em;
+  color: #8a8886;
+  font-weight: 500;
+}
+
+.publishDate {
+  font-size: 0.78em;
+  color: #a19f9d;
+  margin-top: 4px;
+}
+
+// ── Edit button ───────────────────────────────────────────────
+.editBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: transparent;
+  color: #0078d4;
+  border: 1px solid #0078d4;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  &:hover { background: #0078d4; color: #fff; }
+}
+
+// ── Title ─────────────────────────────────────────────────────
+.title {
+  margin: 0;
+  font-size: 1.35em;
+  font-weight: 700;
+  color: #1b1b1b;
+  line-height: 1.3;
+}
+
+// ── Body ──────────────────────────────────────────────────────
+.bodyBox {
+  font-size: 0.95em;
+  line-height: 1.7;
+  color: #323130;
+
+  p { margin: 0 0 12px 0; }
+  p:last-child { margin-bottom: 0; }
+  ul, ol { margin: 0 0 12px 0; padding-left: 20px; }
+  strong, b { font-weight: 700; }
+  em, i { font-style: italic; }
+  a { color: #0078d4; }
+}
+
+// ── Attachments ───────────────────────────────────────────────
+.attachmentsSection {
+  border-top: 1px solid #f3f2f1;
+  padding-top: 16px;
+}
+
+.attachmentsHeading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85em;
+  font-weight: 700;
+  color: #605e5c;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.attachmentList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attachmentCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #faf9f8;
+  border: 1px solid #edebe9;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  &:hover { background: #f3f2f1; border-color: #d2d0ce; }
+}
+
+.attachmentIconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #edebe9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.attachmentTypeIcon {
+  font-size: 1.2em;
+  color: #605e5c;
+}
+
+.attachmentDetails {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.attachmentName {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #1b1b1b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attachmentHint {
+  font-size: 0.75em;
+  color: #a19f9d;
+}
+
+.attachmentOpenIcon {
+  color: #a19f9d;
+  font-size: 0.9em;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .content { padding: 20px 18px 24px; }
+  .execHeader { flex-wrap: wrap; }
+}
