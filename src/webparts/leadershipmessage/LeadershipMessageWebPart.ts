@@ -15,11 +15,13 @@ import { spfi, SPFx } from "@pnp/sp";
 import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import "@pnp/sp/site-users/web";
+import "@pnp/sp/site-groups/web";
 
 export interface ILeadershipMessageWebPartProps {
   sectionTitle: string;
   sourceList: string;
   executiveList: string;
+  editGroup: string;
 }
 
 export default class LeadershipMessageWebPart extends BaseClientSideWebPart<ILeadershipMessageWebPartProps> {
@@ -27,6 +29,7 @@ export default class LeadershipMessageWebPart extends BaseClientSideWebPart<ILea
   private _sp!: ReturnType<typeof spfi>;
   private _siteLists: { key: string; text: string }[] = [];
   private _currentUserId: number = 0;
+  private _isEditor: boolean = false;
 
   public render(): void {
     const element: React.ReactElement<ILeadershipMessagePanelProps> = React.createElement(
@@ -37,6 +40,7 @@ export default class LeadershipMessageWebPart extends BaseClientSideWebPart<ILea
         executiveList: this.properties.executiveList,
         context: this.context,
         currentUserId: this._currentUserId,
+        isEditor: this._isEditor,
       }
     );
 
@@ -52,13 +56,16 @@ export default class LeadershipMessageWebPart extends BaseClientSideWebPart<ILea
     await Promise.all([
       this._loadSiteLists(),
       this._loadCurrentUser(),
+      this._checkEditPermission(),
     ]);
     return super.onInit();
   }
 
   protected onPropertyPaneFieldChanged(propertyPath: string, oldValue: string, newValue: string): void {
     super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
-    if (newValue !== oldValue) {
+    if (propertyPath === 'editGroup') {
+      this._checkEditPermission().then(() => this.render()).catch(console.error);
+    } else if (newValue !== oldValue) {
       this.render();
     }
   }
@@ -88,6 +95,20 @@ export default class LeadershipMessageWebPart extends BaseClientSideWebPart<ILea
     }
   }
 
+  private async _checkEditPermission(): Promise<void> {
+    const groupName = this.properties.editGroup?.trim();
+    if (!groupName) {
+      this._isEditor = false;
+      return;
+    }
+    try {
+      const userGroups = await this._sp.web.currentUser.groups.select("Title")();
+      this._isEditor = userGroups.some((g: { Title: string }) => g.Title === groupName);
+    } catch {
+      this._isEditor = false;
+    }
+  }
+
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
@@ -110,6 +131,11 @@ export default class LeadershipMessageWebPart extends BaseClientSideWebPart<ILea
                   label: 'Executive Directory List',
                   options: this._siteLists,
                   disabled: this._siteLists.length === 0,
+                }),
+                PropertyPaneTextField('editGroup', {
+                  label: 'Add/Edit Permission Group',
+                  placeholder: 'e.g. MThermalEA',
+                  description: 'SharePoint site group whose members can add and edit messages. Leave blank to allow everyone.',
                 }),
               ]
             }

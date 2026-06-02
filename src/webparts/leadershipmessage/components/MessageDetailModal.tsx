@@ -9,7 +9,7 @@ interface MessageDetailModalProps {
   isOpen: boolean;
   onDismiss: () => void;
   onEdit: (message: ILeadershipMessage) => void;
-  currentUserId: number;
+  isEditor: boolean;
 }
 
 const getFileIcon = (fileName: string): string => {
@@ -25,12 +25,12 @@ const getFileIcon = (fileName: string): string => {
 };
 
 const MessageDetailModal: React.FC<MessageDetailModalProps> = ({
-  message, isOpen, onDismiss, onEdit, currentUserId,
+  message, isOpen, onDismiss, onEdit, isEditor,
 }) => {
   if (!isOpen || !message) return <></>;
 
   const exec = message.Executive;
-  const isAuthor = message.Author?.Id === currentUserId;
+  const canEdit = isEditor;
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (e.target === e.currentTarget) onDismiss();
@@ -78,7 +78,7 @@ const MessageDetailModal: React.FC<MessageDetailModalProps> = ({
                 )}
               </div>
 
-              {isAuthor && (
+              {canEdit && (
                 <button
                   className={styles.editBtn}
                   onClick={() => onEdit(message)}

@@ -80,7 +80,7 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: #0078d4;
+  background: #171C8F;
   color: #fff;
   font-size: 1.8em;
   font-weight: 700;
@@ -125,8 +125,8 @@
   gap: 5px;
   padding: 6px 12px;
   background: transparent;
-  color: #0078d4;
-  border: 1px solid #0078d4;
+  color: #171C8F;
+  border: 1px solid #171C8F;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.8em;
@@ -134,7 +134,7 @@
   white-space: nowrap;
   flex-shrink: 0;
   transition: all 0.15s ease;
-  &:hover { background: #0078d4; color: #fff; }
+  &:hover { background: #171C8F; color: #fff; }
 }
 
 // ── Title ─────────────────────────────────────────────────────
@@ -157,7 +157,7 @@
   ul, ol { margin: 0 0 12px 0; padding-left: 20px; }
   strong, b { font-weight: 700; }
   em, i { font-style: italic; }
-  a { color: #0078d4; }
+  a { color: #171C8F; }
 }
 
 // ── Attachments ───────────────────────────────────────────────

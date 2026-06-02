@@ -14,6 +14,7 @@ interface ViewAllModalProps {
   onAddMessage: () => void;
   onAddExecutive: () => void;
   onEditExecutive: (exec: IExecutive) => void;
+  isEditor: boolean;
 }
 
 const stripHtml = (html: string): string => html.replace(/<[^>]+>/g, "").trim();
@@ -23,7 +24,7 @@ const truncate = (text: string, max: number): string =>
 
 const ViewAllModal: React.FC<ViewAllModalProps> = ({
   messages, executives, isOpen, onDismiss,
-  onSelectMessage, onAddMessage, onAddExecutive, onEditExecutive,
+  onSelectMessage, onAddMessage, onAddExecutive, onEditExecutive, isEditor,
 }) => {
   const [activeTab, setActiveTab] = React.useState<"messages" | "executives">("messages");
 
@@ -61,17 +62,19 @@ const ViewAllModal: React.FC<ViewAllModalProps> = ({
         </div>
 
         {/* ── Action bar ── */}
-        <div className={styles.actionBar}>
-          {activeTab === "messages" ? (
-            <button className={styles.addBtn} onClick={onAddMessage}>
-              <Icon iconName="Add" /> Add Message
-            </button>
-          ) : (
-            <button className={styles.addBtn} onClick={onAddExecutive}>
-              <Icon iconName="Add" /> Add Executive
-            </button>
-          )}
-        </div>
+        {isEditor && (
+          <div className={styles.actionBar}>
+            {activeTab === "messages" ? (
+              <button className={styles.addBtn} onClick={onAddMessage}>
+                <Icon iconName="Add" /> Add Message
+              </button>
+            ) : (
+              <button className={styles.addBtn} onClick={onAddExecutive}>
+                <Icon iconName="Add" /> Add Executive
+              </button>
+            )}
+          </div>
+        )}
 
         {/* ── Content ── */}
         <div className={styles.scrollBody}>
@@ -123,7 +126,12 @@ const ViewAllModal: React.FC<ViewAllModalProps> = ({
               : (
                 <ul className={styles.list}>
                   {executives.map(exec => (
-                    <li key={exec.Id} className={styles.listRow} onClick={() => onEditExecutive(exec)}>
+                    <li
+                      key={exec.Id}
+                      className={styles.listRow}
+                      onClick={isEditor ? () => onEditExecutive(exec) : undefined}
+                      style={isEditor ? undefined : { cursor: 'default' }}
+                    >
                       <div className={styles.rowAvatar}>
                         {exec.PhotoUrl ? (
                           <img
@@ -142,7 +150,7 @@ const ViewAllModal: React.FC<ViewAllModalProps> = ({
                         <span className={styles.rowTitle}>{exec.Title}</span>
                         <span className={styles.rowMeta}>{exec.Position}</span>
                       </div>
-                      <Icon iconName="Edit" className={styles.rowChevron} />
+                      {isEditor && <Icon iconName="Edit" className={styles.rowChevron} />}
                     </li>
                   ))}
                 </ul>

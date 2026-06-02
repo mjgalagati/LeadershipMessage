@@ -6,4 +6,5 @@ export interface ILeadershipMessagePanelProps {
   executiveList: string;
   context: WebPartContext;
   currentUserId: number;
+  isEditor: boolean;
 }

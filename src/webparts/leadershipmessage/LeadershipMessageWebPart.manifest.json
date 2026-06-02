@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "55921592-0ea9-41e9-8a0d-9c9e9bcd1e21",
+  "id": "7f4a9c2e-1d8b-4f63-a7e5-92c6b1d4e8f0",
   "alias": "LeadershipMessageWebPart",
   "componentType": "WebPart",
 

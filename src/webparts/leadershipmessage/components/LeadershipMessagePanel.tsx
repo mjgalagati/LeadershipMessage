@@ -138,7 +138,7 @@ const LeadershipMessagePanel = (props: ILeadershipMessagePanelProps): JSX.Elemen
         isOpen={isDetailOpen}
         onDismiss={closeDetail}
         onEdit={openEditMessage}
-        currentUserId={props.currentUserId}
+        isEditor={props.isEditor}
       />
       <ViewAllModal
         messages={messages}
@@ -149,6 +149,7 @@ const LeadershipMessagePanel = (props: ILeadershipMessagePanelProps): JSX.Elemen
         onAddMessage={openAddMessage}
         onAddExecutive={openAddExecutive}
         onEditExecutive={openEditExecutive}
+        isEditor={props.isEditor}
       />
       <AddEditMessageModal
         isOpen={isAddEditMessageOpen}
@@ -181,7 +182,7 @@ const LeadershipMessagePanel = (props: ILeadershipMessagePanelProps): JSX.Elemen
               ? <p>Configure source lists in web part settings.</p>
               : <p>No messages yet.</p>
             }
-            {props.sourceList && (
+            {props.sourceList && props.isEditor && (
               <button className={styles.addBtn} onClick={openAddMessage}>+ Add Message</button>
             )}
           </div>
@@ -233,7 +234,9 @@ const LeadershipMessagePanel = (props: ILeadershipMessagePanelProps): JSX.Elemen
 
         <div className={styles.cardFooter}>
           <button className={styles.readMoreBtn} onClick={() => openDetail(latest)}>Read More →</button>
-          <button className={styles.addBtnFooter} onClick={openAddMessage}>+ Add</button>
+          {props.isEditor && (
+            <button className={styles.addBtnFooter} onClick={openAddMessage}>+ Add</button>
+          )}
         </div>
 
       </div>

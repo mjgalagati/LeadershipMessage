@@ -100,7 +100,7 @@
   box-sizing: border-box;
   font-family: inherit;
   transition: border-color 0.15s ease;
-  &:focus { border-color: #0078d4; }
+  &:focus { border-color: #171C8F; }
 }
 
 // ── Executive picker ──────────────────────────────────────────
@@ -132,7 +132,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #0078d4;
+  background: #171C8F;
   color: #fff;
   font-size: 1.2em;
   font-weight: 700;
@@ -198,7 +198,7 @@
   outline: none;
   background: #fff;
   transition: border-color 0.15s ease;
-  &:focus { border-color: #0078d4; }
+  &:focus { border-color: #171C8F; }
 
   &:empty::before {
     content: attr(data-placeholder);
@@ -309,7 +309,7 @@
 
 .saveBtn {
   padding: 7px 20px;
-  background: #0078d4;
+  background: #FF5E00;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -317,7 +317,7 @@
   font-size: 0.85em;
   font-weight: 600;
   transition: background 0.15s ease;
-  &:hover { background: #106ebe; }
+  &:hover { background: #cc4b00; }
   &:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 

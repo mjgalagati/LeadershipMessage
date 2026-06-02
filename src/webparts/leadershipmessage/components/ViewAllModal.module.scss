@@ -81,8 +81,8 @@
 }
 
 .tabActive {
-  color: #0078d4;
-  border-bottom-color: #0078d4;
+  color: #171C8F;
+  border-bottom-color: #171C8F;
 }
 
 // ── Action bar ────────────────────────────────────────────────
@@ -99,7 +99,7 @@
   align-items: center;
   gap: 6px;
   padding: 7px 14px;
-  background: #107c10;
+  background: #FF5E00;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -107,7 +107,7 @@
   font-size: 0.82em;
   font-weight: 600;
   transition: background 0.15s ease;
-  &:hover { background: #0b5a08; }
+  &:hover { background: #cc4b00; }
 }
 
 // ── Scroll body ───────────────────────────────────────────────
@@ -167,7 +167,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #0078d4;
+  background: #171C8F;
   color: #fff;
   font-size: 1.1em;
   font-weight: 700;

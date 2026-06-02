@@ -100,7 +100,7 @@
   box-sizing: border-box;
   font-family: inherit;
   transition: border-color 0.15s ease;
-  &:focus { border-color: #0078d4; }
+  &:focus { border-color: #171C8F; }
 }
 
 .textarea {
@@ -172,7 +172,7 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #0078d4;
+  border: 3px solid #171C8F;
   user-select: none;
   margin: 0 auto;
   box-shadow: 0 0 0 4px #fff, 0 0 0 5px #d2d0ce;
@@ -192,7 +192,7 @@
   height: 20px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
-  border: 2.5px solid #0078d4;
+  border: 2.5px solid #171C8F;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -239,7 +239,7 @@
 
 .saveBtn {
   padding: 7px 20px;
-  background: #0078d4;
+  background: #FF5E00;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -247,7 +247,7 @@
   font-size: 0.85em;
   font-weight: 600;
   transition: background 0.15s ease;
-  &:hover { background: #106ebe; }
+  &:hover { background: #cc4b00; }
   &:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 

@@ -33,7 +33,7 @@
 .viewAllLink {
   background: none;
   border: none;
-  color: #0078d4;
+  color: #FF5E00;
   font-size: 0.82em;
   font-weight: 600;
   cursor: pointer;
@@ -65,7 +65,7 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: #0078d4;
+  background: #171C8F;
   color: #fff;
   font-size: 1.6em;
   font-weight: 700;
@@ -129,7 +129,7 @@
 
 .readMoreBtn {
   padding: 6px 14px;
-  background: #1b1b1b;
+  background: #FF5E00;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -138,21 +138,21 @@
   font-weight: 600;
   transition: background 0.2s ease;
   white-space: nowrap;
-  &:hover { background: #323130; }
+  &:hover { background: #cc4b00; }
 }
 
 .addBtnFooter {
   padding: 6px 12px;
   background: transparent;
-  color: #107c10;
-  border: 1px solid #107c10;
+  color: #FF5E00;
+  border: 1px solid #FF5E00;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.8em;
   font-weight: 600;
   transition: all 0.2s ease;
   white-space: nowrap;
-  &:hover { background: #107c10; color: #fff; }
+  &:hover { background: #FF5E00; color: #fff; }
 }
 
 // ── Empty state ───────────────────────────────────────────────
@@ -192,14 +192,14 @@
 
 .addBtn {
   padding: 7px 16px;
-  background: #107c10;
+  background: #FF5E00;
   color: #fff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.82em;
   font-weight: 600;
-  &:hover { background: #0b5a08; }
+  &:hover { background: #cc4b00; }
 }
 
 @media (max-width: 480px) {
