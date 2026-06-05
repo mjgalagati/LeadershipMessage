@@ -17,7 +17,12 @@ interface ViewAllModalProps {
   isEditor: boolean;
 }
 
-const stripHtml = (html: string): string => html.replace(/<[^>]+>/g, "").trim();
+const stripHtml = (html: string): string => {
+  const tmp = document.createElement("div");
+  tmp.innerHTML = html;
+  const text = tmp.textContent || tmp.innerText || "";
+  return text.replace(/\u00a0/g, " ").trim();
+};
 
 const truncate = (text: string, max: number): string =>
   text.length <= max ? text : text.slice(0, max).replace(/\s+$/, "") + "…";
